@@ -4,23 +4,15 @@ import { toSnakeCaseDeep } from "../_util.ts";
 import type { Memo, MemoId } from "./type.ts";
 import { isMemo } from "./_predicate.ts";
 
-export type Params =
-  & {
-    title?: string;
-    body?: string;
-    draft?: boolean;
-    notice?: boolean;
-    tags?: string[];
-  }
-  & (
-    | {
-      scope: "group";
-      groups: string[];
-    }
-    | {
-      scope?: "everyone" | "private";
-    }
-  );
+export type Params = {
+  title?: string;
+  body?: string;
+  draft?: boolean;
+  notice?: boolean;
+  tags?: string[];
+  scope?: "everyone" | "private" | "group";
+  groups?: number[];
+};
 
 export async function updateMemo(
   client: Client,
