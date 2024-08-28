@@ -16,10 +16,12 @@ export async function postComment(
   client: Client,
   memoId: MemoId,
   params: Params,
+  { signal }: { signal?: AbortSignal } = {},
 ): Promise<Comment> {
   const data = await client.request(`posts/${memoId}/comments`, {
     method: "POST",
     body: JSON.stringify(toSnakeCaseDeep(params)),
+    signal,
   });
   return ensure(data, isComment);
 }

@@ -12,10 +12,12 @@ export type Params = {
 export async function createGroup(
   client: Client,
   params: Params,
+  { signal }: { signal?: AbortSignal } = {},
 ): Promise<Group> {
   const data = await client.request(`groups`, {
     method: "POST",
     body: JSON.stringify(toSnakeCaseDeep(params)),
+    signal,
   });
   return ensure(data, isGroup);
 }

@@ -5,9 +5,12 @@ import { isTag } from "./_predicate.ts";
 
 const isTags: Predicate<Tag[]> = is.ArrayOf(isTag);
 
-export async function* iterTags(client: Client): AsyncIterable<Tag> {
+export async function* iterTags(
+  client: Client,
+  { signal }: { signal?: AbortSignal } = {},
+): AsyncIterable<Tag> {
   while (true) {
-    const data = await client.request("tags");
+    const data = await client.request("tags", { signal });
     const tags = ensure(data, isTags);
     if (tags.length === 0) {
       break;

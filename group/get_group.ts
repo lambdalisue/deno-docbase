@@ -6,7 +6,8 @@ import { isGroup } from "./_predicate.ts";
 export async function getGroup(
   client: Client,
   groupId: GroupId,
+  { signal }: { signal?: AbortSignal } = {},
 ): Promise<Group> {
-  const data = await client.request(`groups/${groupId}`);
+  const data = await client.request(`groups/${groupId}`, { signal });
   return ensure(data, isGroup);
 }

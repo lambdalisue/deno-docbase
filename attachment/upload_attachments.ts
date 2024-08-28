@@ -13,10 +13,12 @@ export type Params = {
 export async function uploadAttachments(
   client: Client,
   params: Params,
+  { signal }: { signal?: AbortSignal } = {},
 ): Promise<Attachment[]> {
   const data = await client.request(`attachments`, {
     method: "POST",
     body: JSON.stringify(params),
+    signal,
   });
   return ensure(data, isAttachments);
 }

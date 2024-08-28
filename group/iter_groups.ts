@@ -14,6 +14,7 @@ export type Params = {
 export async function* iterGroups(
   client: Client,
   params: Params = {},
+  { signal }: { signal?: AbortSignal } = {},
 ): AsyncIterable<GroupItem> {
   const qs = new URLSearchParams({
     ...pipe(
@@ -27,7 +28,7 @@ export async function* iterGroups(
   let page = 0;
   while (true) {
     qs.set("page", (++page).toString());
-    const data = await client.request(`groups?${qs}`);
+    const data = await client.request(`groups?${qs}`, { signal });
     const groups = ensure(data, isGroupItems);
     yield* groups;
     if (groups.length < 200) {

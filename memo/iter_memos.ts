@@ -19,6 +19,7 @@ export type Params = {
 export async function* iterMemos(
   client: Client,
   params: Params = {},
+  { signal }: { signal?: AbortSignal } = {},
 ): AsyncIterable<MemoItem> {
   const qs = new URLSearchParams({
     ...pipe(
@@ -31,7 +32,7 @@ export async function* iterMemos(
   });
   let search = `?${qs}`;
   while (true) {
-    const data = await client.request(`posts${search}`);
+    const data = await client.request(`posts${search}`, { signal });
     const resp = ensure(data, isPostsResponse);
     yield* resp.posts;
     if (!resp.meta.nextPage) {

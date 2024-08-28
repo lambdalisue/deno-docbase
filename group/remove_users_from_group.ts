@@ -11,9 +11,11 @@ export async function removeUsersFromGroup(
   client: Client,
   groupId: GroupId,
   params: Params,
+  { signal }: { signal?: AbortSignal } = {},
 ): Promise<void> {
   await client.request(`groups/${groupId}/users`, {
     method: "DELETE",
     body: JSON.stringify(toSnakeCaseDeep(params)),
+    signal,
   });
 }

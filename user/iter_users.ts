@@ -16,14 +16,17 @@ export type Params = {
 export function iterUsers(
   client: Client,
   params?: Params & { includeUserGroups: true },
+  options?: { signal?: AbortSignal },
 ): AsyncIterable<UserWithGroups>;
 export function iterUsers(
   client: Client,
   params?: Params,
+  options?: { signal?: AbortSignal },
 ): AsyncIterable<User>;
 export async function* iterUsers(
   client: Client,
   params: Params = {},
+  { signal }: { signal?: AbortSignal } = {},
 ): AsyncIterable<User> | AsyncIterable<UserWithGroups> {
   const qs = new URLSearchParams({
     ...pipe(
@@ -37,7 +40,7 @@ export async function* iterUsers(
   let page = 0;
   while (true) {
     qs.set("page", (++page).toString());
-    const data = await client.request(`users?${qs}`);
+    const data = await client.request(`users?${qs}`, { signal });
     const users = params.includeUserGroups
       ? ensure(data, isUsersWithGroups)
       : ensure(data, isUsers);

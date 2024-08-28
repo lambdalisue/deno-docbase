@@ -26,10 +26,12 @@ export async function updateMemo(
   client: Client,
   memoId: MemoId,
   params: Params,
+  { signal }: { signal?: AbortSignal } = {},
 ): Promise<Memo> {
   const data = await client.request(`posts/${memoId}`, {
     method: "PATCH",
     body: JSON.stringify(toSnakeCaseDeep(params)),
+    signal,
   });
   return ensure(data, isMemo);
 }

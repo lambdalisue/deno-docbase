@@ -27,10 +27,12 @@ export type Params =
 export async function postMemo(
   client: Client,
   params: Params,
+  { signal }: { signal?: AbortSignal } = {},
 ): Promise<Memo> {
   const data = await client.request(`posts`, {
     method: "POST",
     body: JSON.stringify(toSnakeCaseDeep(params)),
+    signal,
   });
   return ensure(data, isMemo);
 }
