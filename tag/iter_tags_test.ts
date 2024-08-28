@@ -7,24 +7,15 @@ Deno.test("iterTags", async (t) => {
   const domain = "domain";
   const token = "token";
   await t.step("iterates over tags", async () => {
-    let count = 0;
     await using baseUrl = startDummyServer((req, _info) => {
       assertEquals(req.method, "GET");
       assertEquals(new URL(req.url).pathname, `/teams/${domain}/tags`);
-      switch (count++) {
-        case 0:
-          return new Response(JSON.stringify([
-            { name: "tag1", preferred: false, starred: false },
-            { name: "tag2", preferred: false, starred: false },
-          ]));
-        case 1:
-          return new Response(JSON.stringify([
-            { name: "tag3", preferred: false, starred: false },
-            { name: "tag4", preferred: false, starred: false },
-          ]));
-        default:
-          return new Response(JSON.stringify([]));
-      }
+      return new Response(JSON.stringify([
+        { name: "tag1", preferred: false, starred: false },
+        { name: "tag2", preferred: false, starred: false },
+        { name: "tag3", preferred: false, starred: false },
+        { name: "tag4", preferred: false, starred: false },
+      ]));
     });
     const client = new Client(
       { domain, token },
@@ -37,6 +28,5 @@ Deno.test("iterTags", async (t) => {
       { name: "tag3", preferred: false, starred: false },
       { name: "tag4", preferred: false, starred: false },
     ]);
-    assertEquals(count, 3);
   });
 });

@@ -9,12 +9,7 @@ export async function* iterTags(
   client: Client,
   { signal }: { signal?: AbortSignal } = {},
 ): AsyncIterable<Tag> {
-  while (true) {
-    const data = await client.request("tags", { signal });
-    const tags = ensure(data, isTags);
-    if (tags.length === 0) {
-      break;
-    }
-    yield* tags;
-  }
+  const data = await client.request("tags", { signal });
+  const tags = ensure(data, isTags);
+  yield* tags;
 }
