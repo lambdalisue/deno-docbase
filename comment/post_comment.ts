@@ -9,7 +9,7 @@ export type Params = {
   body: string;
   notice?: boolean;
   authorId?: number;
-  publishedA?: string;
+  publishedAt?: string;
 };
 
 export async function postComment(

@@ -12,7 +12,7 @@ export type Params =
     notice?: boolean;
     tags?: string[];
     authorId?: number;
-    publishedA?: string;
+    publishedAt?: string;
   }
   & (
     | {
