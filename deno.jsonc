@@ -2,7 +2,8 @@
   "name": "@lambdalisue/docbase",
   "version": "0.0.0",
   "exports": {
-    ".": "./mod.ts"
+    ".": "./mod.ts",
+    "./client": "./client.ts"
   },
   "exclude": [
     ".coverage/**"
