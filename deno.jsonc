@@ -3,7 +3,32 @@
   "version": "0.0.0",
   "exports": {
     ".": "./mod.ts",
-    "./client": "./client.ts"
+    "./attachment/download-attachment": "./attachment/download_attachment.ts",
+    "./attachment/type": "./attachment/type.ts",
+    "./attachment/upload-attachments": "./attachment/upload_attachments.ts",
+    "./client": "./client.ts",
+    "./comment/delete-comment": "./comment/delete_comment.ts",
+    "./comment/post-comment": "./comment/post_comment.ts",
+    "./comment/type": "./comment/type.ts",
+    "./group/add-users-to-group": "./group/add_users_to_group.ts",
+    "./group/create-group": "./group/create_group.ts",
+    "./group/get-group": "./group/get_group.ts",
+    "./group/remove-users-from-group": "./group/remove_users_from_group.ts",
+    "./group/iter-groups": "./group/iter_groups.ts",
+    "./group/type": "./group/type.ts",
+    "./memo/archive-memo": "./memo/archive_memo.ts",
+    "./memo/delete-memo": "./memo/delete_memo.ts",
+    "./memo/get-memo": "./memo/get_memo.ts",
+    "./memo/post-memo": "./memo/post_memo.ts",
+    "./memo/iter-memos": "./memo/iter_memos.ts",
+    "./memo/type": "./memo/type.ts",
+    "./memo/unarchive-memo": "./memo/unarchive_memo.ts",
+    "./memo/update-memo": "./memo/update_memo.ts",
+    "./tag/iter-tags": "./tag/iter_tags.ts",
+    "./tag/type": "./tag/type.ts",
+    "./user/get-profile": "./user/get_profile.ts",
+    "./user/iter-users": "./user/iter_users.ts",
+    "./user/type": "./user/type.ts"
   },
   "exclude": [
     ".coverage/**"
