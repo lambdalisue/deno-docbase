@@ -40,7 +40,7 @@ async function printUsage(
   { command, signal }: { command?: string; signal?: AbortSignal } = {},
 ): Promise<void> {
   const resp = await fetch(
-    import.meta.resolve(`./${toSnakeCase(command ?? "docbase")}.txt`),
+    import.meta.resolve(`./_${toSnakeCase(command ?? "usage")}.txt`),
     { signal },
   );
   console.log(await resp.text());
