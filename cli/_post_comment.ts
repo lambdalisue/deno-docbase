@@ -15,24 +15,24 @@ export async function main(
   args: string[],
   { signal }: { signal?: AbortSignal },
 ): Promise<void | number> {
-  const content = decoder.decode(await readAll(Deno.stdin.readable));
+  const options = parseArgs(args, {
+    string: ["file", "author-id", "published-at"],
+    boolean: ["notice", "json"],
+    negatable: ["notice"],
+    alias: { file: "f" },
+  });
+  const content = options.file
+    ? await Deno.readTextFile(options.file)
+    : decoder.decode(await readAll(Deno.stdin.readable));
   const { attrs, body } = test(content, ["yaml"]) ? extract(content) : {
     attrs: {},
     body: content,
   };
   const props = maybe(attrs, is.Record);
-  const options = parseArgs(args, {
-    string: ["author-id", "published-at"],
-    boolean: ["notice", "json"],
-    negatable: ["notice"],
-    default: {
-      notice: maybe(props?.notice, is.Boolean),
-    },
-  });
   const memoId = toMemoId(options._.at(0));
   const params: Params = {
     body,
-    notice: maybe(options.notice, is.Boolean),
+    notice: !options.notice ? false : maybe(props?.notice, is.Boolean),
     authorId: unnullish(options["author-id"], (v) => toUserId(v)),
     publishedAt: maybe(options["published-at"], is.String),
   };

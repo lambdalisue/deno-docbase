@@ -1,7 +1,8 @@
 Post a memo.
 
-The memo content is read from STDIN. If the content starts from FRONT MATTER, it is parsed as YAML
-and used as memo attributes (overwritten by options).
+The memo content is read from STDIN unless --file option is specified.
+If the content starts from FRONT MATTER, it is parsed as YAML and used as memo
+attributes (overwritten by options).
 
 Usage: docbase post <DOMAIN> [OPTIONS]
 
@@ -9,6 +10,7 @@ Arguments:
   DOMAIN                          Domain name of the team
 
 Options:
+  -f, --file <FILE>               File path to post. The filename is used as the default title
   --title <TITLE>                 Memo title
   --[no-]draft                    Post as draft
   --[no-]notice                   Send notification
@@ -35,4 +37,6 @@ Front matter example:
   ---
 
 Examples:
-  echo "Hello, DocBase!" | docbase post my-domain
+  docbase post my-domain --file README.txt
+
+  echo "Hello, DocBase!" | docbase post my-domain --title "Hello, DocBase!"

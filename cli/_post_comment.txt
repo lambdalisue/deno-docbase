@@ -1,7 +1,8 @@
 Post a comment on a memo.
 
-The comment content is read from STDIN. If the content starts from FRONT MATTER, it is parsed as YAML
-and used as memo attributes (overwritten by options).
+The comment content is read from STDIN unless --file option is specified.
+If the content starts from FRONT MATTER, it is parsed as YAML and used as memo
+attributes (overwritten by options).
 
 Usage: docbase post-comment <DOMAIN> <MEMO> [OPTIONS]
 
@@ -10,6 +11,7 @@ Arguments:
   MEMO                            Memo ID or URL to post comment
 
 Options:
+  -f, --file <FILE>               File path to post
   --[no-]notice                   Send notification
   --author-id <AUTHOR>            User ID or URL (Admin only)
   --published-at <PUBLISHED_AT>   Published date (ISO 8601, Admin only)
@@ -21,4 +23,6 @@ Front matter example:
   ---
 
 Examples:
+  docbase post-comment my-domain 1234 -f README.txt
+
   echo "Hello, DocBase!" | docbase post-comment my-domain 1234
