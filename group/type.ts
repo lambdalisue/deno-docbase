@@ -12,7 +12,7 @@ export type GroupItem = {
 };
 
 export type Group = GroupItem & {
-  description: string;
+  description: string | null;
   postsCount: number;
   lastActivityAt: string;
   createdAt: string;

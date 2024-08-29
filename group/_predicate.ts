@@ -16,7 +16,7 @@ export const isGroupItem = is.ObjectOf({
 export const isGroup = is.IntersectionOf([
   isGroupItem,
   is.ObjectOf({
-    description: is.String,
+    description: is.UnionOf([is.String, is.Null]),
     postsCount: is.Number,
     lastActivityAt: is.String,
     createdAt: is.String,
