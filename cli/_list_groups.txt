@@ -1,0 +1,8 @@
+List groups.
+
+Usage: docbase list-groups [OPTIONS]
+
+Options
+  --name <NAME>               Filter by name
+  --json                      Output as JSON line
+  -h, --help                  Show help

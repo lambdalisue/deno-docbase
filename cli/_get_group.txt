@@ -1,0 +1,15 @@
+Get a group.
+
+Usage: docbase group [OPTIONS] <GROUP>
+
+Arguments:
+  GROUP                       Group ID or URL to get
+
+Options:
+  --json                      Output as JSON
+  -h, --help                  Show help
+
+Examples:
+  docbase group 1234
+
+  docbase group https://{domain}.docbase.io/groups/1234

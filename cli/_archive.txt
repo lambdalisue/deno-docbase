@@ -1,0 +1,14 @@
+Archive a memo.
+
+Usage: docbase archive [OPTIONS] <MEMO>
+
+Arguments:
+  MEMO                          Memo ID or URL to archive
+
+Options:
+  -h, --help                    Show help
+
+Examples:
+  docbase archive 12345
+
+  docbase archive https://{domain}.docbase.io/posts/12345

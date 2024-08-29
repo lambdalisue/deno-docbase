@@ -1,0 +1,17 @@
+Post comment on memo.
+
+The comment content is read from STDIN. If the content starts from FRONT MATTER, it is parsed as YAML
+and used as memo attributes (overwritten by options).
+
+Usage: docbase post [OPTIONS]
+
+Options:
+  --[no-]notice                   Send notification
+  --author-id <AUTHOR>            User ID or URL (Admin only)
+  --published-at <PUBLISHED_AT>   Published date (ISO 8601, Admin only)
+  -h, --help                      Show help
+
+Front matter example:
+  ---
+  notice: false
+  ---

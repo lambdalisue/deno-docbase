@@ -1,0 +1,12 @@
+Delete a comment.
+
+Usage: docbase delete-comment [OPTIONS] <COMMENT>
+
+Arguments:
+  COMMENT                       Comment ID to delete
+
+Options:
+  -h, --help                    Show help
+
+Examples:
+  docbase delete-comment 1234

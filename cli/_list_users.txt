@@ -1,0 +1,10 @@
+List users.
+
+See https://help.docbase.io/posts/1827704 for query features.
+
+Usage: docbase list-users [OPTIONS]
+
+Options:
+  -q, --query <query>         Query string
+  --json                      Output as JSON
+  -h, --help                  Show help

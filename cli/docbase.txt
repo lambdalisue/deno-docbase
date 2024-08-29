@@ -1,0 +1,41 @@
+Usage: docbase [COMMAND] [OPTIONS]
+
+Commands:
+  Memo:
+    list                      List memos
+    get                       Get a memo
+    post                      Post a memo
+    update                    Update a memo
+    delete                    Delete a memo
+    archive                   Archive a memo
+    unarchive                 Unarchive a memo
+
+  User:
+    profile                   Get a profile
+    list-users                List users
+
+  Group:
+    list-groups               List groups
+    get-group                 Get a group
+    create-group              Create a group
+    add-users-to-group        Add users to a group
+    remove-users-from-group   Remove users from a group
+
+  Tag:
+    list-tags                 List tags
+
+  Comment:
+    post-comment              Post a comment
+    delete-comment            Delete a comment
+
+  Attachment:
+    upload                    Upload a file
+    download                  Download a file
+
+Options:
+  -h, --help                  Show help
+
+Environment variables:
+  DOCBASE_API_TOKEN           DocBase API token (required)
+  DOCBASE_TEAM_NAME           DocBase team name (required)
+  DOCBASE_BASE_URL            DocBase API base URL (default: https://api.docbase.io)

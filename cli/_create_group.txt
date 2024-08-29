@@ -1,0 +1,13 @@
+Create a group.
+
+Usage: docbase create-group [OPTIONS] <NAME>
+
+Arguments:
+  NAME                          Group name
+
+Options:
+  --description <DESC>          Description
+  -h, --help                    Show help
+
+Examples:
+  docbase create-group --description "This is a group" "Group Name"

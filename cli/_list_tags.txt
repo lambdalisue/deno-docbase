@@ -1,0 +1,6 @@
+List DocBase tags.
+
+Usage: docbase list-tags [OPTIONS]
+
+Options:
+  -h, --help                  Show help

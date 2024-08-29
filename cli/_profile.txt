@@ -1,0 +1,7 @@
+Get authenticated user's profile.
+
+Usage: docbase profile [OPTIONS]
+
+Options:
+  --json                    Output as JSON
+  -h, --help                Show help

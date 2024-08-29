@@ -1,0 +1,14 @@
+Delete a memo.
+
+Usage: docbase delete [OPTIONS] <MEMO>
+
+Arguments:
+  MEMO                          Memo ID or URL to delete
+
+Options:
+  -h, --help                    Show help
+
+Examples:
+  docbase delete 1234
+
+  docbase delete https://{domain}.docbase.io/posts/1234

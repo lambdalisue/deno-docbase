@@ -1,0 +1,15 @@
+Get a memo.
+
+Usage: docbase get [OPTIONS] <MEMO>
+
+Arguments:
+  MEMO                        Memo ID or URL to get
+
+Options:
+  --json                      Output as JSON    
+  -h, --help                  Show help
+
+Examples:
+  docbase get 1234
+
+  docbase get https://{domain}.docbase.io/posts/1234

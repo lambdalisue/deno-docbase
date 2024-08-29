@@ -1,0 +1,10 @@
+Upload files.
+
+Usage: docbase upload [OPTIONS] <FILE>...
+
+Arguments:
+  FILE                      File to upload (multiple)
+
+Options:
+  --json                    Output as JSON
+  -h, --help                Show help

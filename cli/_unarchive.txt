@@ -1,0 +1,9 @@
+Unarchive a memo.
+
+Usage: docbase unarchive [OPTIONS] <MEMO>
+
+Arguments:
+  MEMO                          Memo ID or URL to unarchive
+
+Options:
+  -h, --help                    Show help

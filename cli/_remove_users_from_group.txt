@@ -1,0 +1,10 @@
+Remove users from a group.
+
+Usage: docbase remove-users-from-group [OPTIONS] <GROUP>
+
+Arguments:
+  GROUP                 Group ID or URL to remove users
+
+Options:
+  --user <USER>         User ID or URL to remove. (multiple)
+  -h, --help            Show help

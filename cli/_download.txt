@@ -1,0 +1,14 @@
+Download an attachment file.
+
+Usage: docbase download [OPTIONS] <ATTACHMENT>
+
+Arguments:
+  ATTACHMENT                    Attachment ID or URL to download
+
+Options:
+  -h, --help                    Show help
+
+Examples:
+  docbase download unique-uuid-value.md
+
+  docbase download https://docbase.io/file_attachments/unique-uuid-value.md

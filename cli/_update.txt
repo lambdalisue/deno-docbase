@@ -1,0 +1,33 @@
+Update a memo.
+
+The memo content is read from STDIN. If the content starts from FRONT MATTER, it is parsed as YAML
+and used as memo attributes (overwritten by options).
+
+Usage: docbase update [OPTIONS] <MEMO>
+
+Arguments:
+  MEMO                          Memo ID or URL to update
+
+Options:
+  --title <TITLE>               Memo title
+  --[no-]draft                  Post as draft
+  --[no-]notice                 Send notification
+  --tag <TAG>                   Tag (multiple)
+  --scope <SCOPE>               Scope (everyone, group, private)
+  --group <GROUP>               Group ID or URL (multiple)
+  --json                        Output as JSON
+  -h, --help                    Show help
+
+Front matter example:
+  ---
+  title: Post DocBase memo
+  draft: true
+  notice: false
+  tags:
+    - docbase
+    - memo
+  scope: group
+  groups:
+    - 1234
+    - 5678
+  ---
