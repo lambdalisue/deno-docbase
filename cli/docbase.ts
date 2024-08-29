@@ -92,7 +92,7 @@ async function main(): Promise<void | number> {
   const [command, domain = undefined, ...args] = Deno.args;
   if (!availableCommands.has(command)) {
     throw new Error(`Unknown command: ${command}`);
-  } else if (args.includes("--help") || args.includes("-h")) {
+  } else if (Deno.args.includes("--help") || Deno.args.includes("-h")) {
     await printUsage({ command, signal });
     return;
   } else if (!domain) {
