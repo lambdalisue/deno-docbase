@@ -1,10 +1,20 @@
 Remove users from a group.
 
-Usage: docbase remove-users-from-group [OPTIONS] <GROUP>
+Usage: docbase remove-users-from-group <DOMAIN> <GROUP> [OPTIONS]
 
 Arguments:
+  DOMAIN                Domain name of the team
   GROUP                 Group ID or URL to remove users
 
 Options:
   --user <USER>         User ID or URL to remove. (multiple)
   -h, --help            Show help
+
+Examples:
+  docbase remove-users-from-group my-domain 1234 --user 5678
+
+  docbase remove-users-from-group \
+    my-domain \
+    https://{domain}.docbase.io/groups/1234 \
+    --user https://{domain}.docbase.io/users/5678 \
+    --user https://{domain}.docbase.io/users/9101

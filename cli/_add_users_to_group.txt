@@ -1,8 +1,9 @@
 Add users to a group.
 
-Usage: docbase add-users-to-group [OPTIONS] <GROUP>
+Usage: docbase add-users-to-group <DOMAIN> <GROUP> [OPTIONS]
 
 Arguments:
+  DOMAIN                Domain name of the team
   GROUP                 Group ID or URL to add users
 
 Options:
@@ -10,9 +11,10 @@ Options:
   -h, --help            Show help
 
 Examples:
-  docbase add-users-to-group --user 5678 1234
+  docbase add-users-to-group my-domain 1234 --user 5678
 
   docbase add-users-to-group \
+    my-domain \
+    https://{domain}.docbase.io/groups/1234 \
     --user https://{domain}.docbase.io/users/5678 \
-    --user https://{domain}.docbase.io/users/9101 \
-    https://{domain}.docbase.io/groups/1234
+    --user https://{domain}.docbase.io/users/9101 

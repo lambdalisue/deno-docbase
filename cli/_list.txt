@@ -2,14 +2,17 @@ List memos.
 
 See https://help.docbase.io/posts/1827704 for query features.
 
-Usage: docbase list [OPTIONS]
+Usage: docbase list <DOMAIN> [OPTIONS]
+
+Arguments:
+  DOMAIN                Domain name of the team
 
 Options:
-  -q, --query <QUERY>         Query string
-  --json                      Output as JSON line
-  -h, --help                  Show help
+  -q, --query <QUERY>   Query string
+  --json                Output as JSON line
+  -h, --help            Show help
 
 Examples:
-  docbase list
+  docbase list my-domain
 
-  docbase list --query "tag:api OR tag:doc"
+  docbase list my-domain --query "tag:api OR tag:doc"

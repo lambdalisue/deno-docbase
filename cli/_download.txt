@@ -1,14 +1,15 @@
 Download an attachment file.
 
-Usage: docbase download [OPTIONS] <ATTACHMENT>
+Usage: docbase download <DOMAIN> <ATTACHMENT> [OPTIONS]
 
 Arguments:
-  ATTACHMENT                    Attachment ID or URL to download
+  DOMAIN                Domain name of the team
+  ATTACHMENT            Attachment ID or URL to download
 
 Options:
-  -h, --help                    Show help
+  -h, --help            Show help
 
 Examples:
-  docbase download unique-uuid-value.md
+  docbase download my-domain unique-uuid-value.md
 
-  docbase download https://docbase.io/file_attachments/unique-uuid-value.md
+  docbase download my-domain https://docbase.io/file_attachments/unique-uuid-value.md

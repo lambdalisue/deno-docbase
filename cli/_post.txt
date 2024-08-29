@@ -3,7 +3,10 @@ Post a memo.
 The memo content is read from STDIN. If the content starts from FRONT MATTER, it is parsed as YAML
 and used as memo attributes (overwritten by options).
 
-Usage: docbase post [OPTIONS]
+Usage: docbase post <DOMAIN> [OPTIONS]
+
+Arguments:
+  DOMAIN                          Domain name of the team
 
 Options:
   --title <TITLE>                 Memo title
@@ -30,3 +33,6 @@ Front matter example:
     - 1234
     - 5678
   ---
+
+Examples:
+  echo "Hello, DocBase!" | docbase post my-domain

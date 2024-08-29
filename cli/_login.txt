@@ -1,0 +1,15 @@
+Login to DocBase and save token.
+
+It saves the token to `~/.docbase/keystore.json`. 
+Keep the file secret while it contains the raw token.
+
+Usage: docbase login <DOMAIN> [OPTIONS]
+
+Arguments:
+  DOMAIN                Domain name of the team
+
+Options:
+  -h, --help            Show help
+
+Examples:
+  docbase login my-domain

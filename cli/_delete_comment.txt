@@ -1,12 +1,13 @@
 Delete a comment.
 
-Usage: docbase delete-comment [OPTIONS] <COMMENT>
+Usage: docbase delete-comment <DOMAIN> <COMMENT> [OPTIONS]
 
 Arguments:
-  COMMENT                       Comment ID to delete
+  DOMAIN                Domain name of the team
+  COMMENT               Comment ID to delete
 
 Options:
-  -h, --help                    Show help
+  -h, --help            Show help
 
 Examples:
-  docbase delete-comment 1234
+  docbase delete-comment my-domain 1234

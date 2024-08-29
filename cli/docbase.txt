@@ -1,6 +1,12 @@
-Usage: docbase [COMMAND] [OPTIONS]
+Usage: docbase [COMMAND] [DOMAIN] [OPTIONS]
+
+Domain:
+  DocBase team name.
 
 Commands:
+  Auth:
+    login                     Login to DocBase
+
   Memo:
     list                      List memos
     get                       Get a memo
@@ -36,6 +42,8 @@ Options:
   -h, --help                  Show help
 
 Environment variables:
-  DOCBASE_API_TOKEN           DocBase API token (required)
-  DOCBASE_TEAM_NAME           DocBase team name (required)
   DOCBASE_BASE_URL            DocBase API base URL (default: https://api.docbase.io)
+
+Examples:
+  docbase login my-domain
+  docbase list my-domain

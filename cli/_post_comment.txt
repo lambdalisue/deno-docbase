@@ -1,9 +1,13 @@
-Post comment on memo.
+Post a comment on a memo.
 
 The comment content is read from STDIN. If the content starts from FRONT MATTER, it is parsed as YAML
 and used as memo attributes (overwritten by options).
 
-Usage: docbase post [OPTIONS]
+Usage: docbase post-comment <DOMAIN> <MEMO> [OPTIONS]
+
+Arguments:
+  DOMAIN                          Domain name of the team
+  MEMO                            Memo ID or URL to post comment
 
 Options:
   --[no-]notice                   Send notification
@@ -15,3 +19,6 @@ Front matter example:
   ---
   notice: false
   ---
+
+Examples:
+  echo "Hello, DocBase!" | docbase post-comment my-domain 1234

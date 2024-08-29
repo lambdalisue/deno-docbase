@@ -1,6 +1,12 @@
-List DocBase tags.
+List tags.
 
-Usage: docbase list-tags [OPTIONS]
+Usage: docbase list-tags <DOMAIN> [OPTIONS]
+
+Arguments:
+  DOMAIN                Domain name of the team
 
 Options:
-  -h, --help                  Show help
+  -h, --help            Show help
+
+Examples:
+  docbase list-tags my-domain

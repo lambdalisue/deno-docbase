@@ -1,10 +1,16 @@
 Upload files.
 
-Usage: docbase upload [OPTIONS] <FILE>...
+Usage: docbase upload <DOMAIN> <FILE>... [OPTIONS] 
 
 Arguments:
-  FILE                      File to upload (multiple)
+  DOMAIN                Domain name of the team
+  FILE                  File to upload (multiple)
 
 Options:
-  --json                    Output as JSON
-  -h, --help                Show help
+  --json                Output as JSON
+  -h, --help            Show help
+
+Examples:
+  docbase upload my-domain /path/to/file1 /path/to/file2
+
+  docbase upload my-domain /path/to/file1 --json

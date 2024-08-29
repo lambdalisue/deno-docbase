@@ -1,8 +1,12 @@
 import "@std/dotenv/load";
+import { join } from "@std/path/join";
+import { promptSecret } from "@std/cli/prompt-secret";
 import { toSnakeCase } from "@std/text/to-snake-case";
+import { Keystore } from "./_keystore.ts";
 import { Client } from "../client.ts";
 
 const availableCommands = new Set([
+  "login",
   "list",
   "get",
   "post",
@@ -23,13 +27,14 @@ const availableCommands = new Set([
   "download",
 ]);
 
-function mustGetEnv(key: string): string {
-  const value = Deno.env.get(key);
-  if (value == null) {
-    throw new Error(`Missing environment variable: ${key}`);
-  }
-  return value;
-}
+const keystoreFile = Deno.env.get("DOCBASE_KEYSTORE_PATH") ?? join(
+  Deno.env.get("HOME") ?? "/",
+  ".docbase/keystore.json",
+);
+
+const baseUrl = new URL(
+  Deno.env.get("DOCBASE_BASE_URL") ?? "https://api.docbase.io",
+);
 
 async function printUsage(
   { command, signal }: { command?: string; signal?: AbortSignal } = {},
@@ -39,6 +44,37 @@ async function printUsage(
     { signal },
   );
   console.log(await resp.text());
+}
+
+async function login(
+  keystore: Keystore,
+  domain: string,
+  { signal }: { signal: AbortSignal },
+): Promise<void> {
+  const token = promptSecret("Token:");
+  if (!token) {
+    console.log("Cancelled");
+    return;
+  }
+  // Check if the token is valid
+  const client = new Client({ token, domain }, { baseUrl });
+  try {
+    await invoke(client, "profile", [], { signal });
+  } catch (err) {
+    throw new Error(`Failed to login ${domain}: ${err}`);
+  }
+  keystore.set(domain, token);
+  await keystore.save(keystoreFile, { signal });
+}
+
+async function invoke(
+  client: Client,
+  command: string,
+  args: string[],
+  { signal }: { signal: AbortSignal },
+): Promise<void> {
+  const { main } = await import(`./_${toSnakeCase(command)}.ts`);
+  await main(client, args, { signal });
 }
 
 async function main(): Promise<void | number> {
@@ -53,25 +89,26 @@ async function main(): Promise<void | number> {
     return 1;
   }
 
-  const client = new Client({
-    token: mustGetEnv("DOCBASE_API_TOKEN"),
-    domain: mustGetEnv("DOCBASE_TEAM_NAME"),
-  }, {
-    baseUrl: new URL(
-      Deno.env.get("DOCBASE_BASE_URL") ?? "https://api.docbase.io",
-    ),
-  });
-
-  const [command, ...args] = Deno.args;
+  const [command, domain = undefined, ...args] = Deno.args;
   if (!availableCommands.has(command)) {
     throw new Error(`Unknown command: ${command}`);
-  }
-  if (args.includes("--help") || args.includes("-h")) {
+  } else if (args.includes("--help") || args.includes("-h")) {
     await printUsage({ command, signal });
     return;
+  } else if (!domain) {
+    throw new Error("DOMAIN must be specified");
   }
-  const { main } = await import(`./_${toSnakeCase(command)}.ts`);
-  await main(client, args, { signal });
+
+  const keystore = await Keystore.fromFile(keystoreFile, { signal });
+  if (command === "login") {
+    await login(keystore, domain, { signal });
+    return;
+  }
+
+  const client = new Client({ token: keystore.get(domain), domain }, {
+    baseUrl,
+  });
+  await invoke(client, command, args, { signal });
 }
 
 if (import.meta.main) {

@@ -36,6 +36,7 @@
   ],
   "publish": {
     "include": [
+      "**/*.txt",
       "**/*.ts",
       "README.md",
       "LICENSE"
@@ -47,6 +48,7 @@
     ]
   },
   "imports": {
+    "@core/errorutil": "jsr:@core/errorutil@^1.2.0",
     "@core/pipe": "jsr:@core/pipe@^0.3.0",
     "@core/streamutil": "jsr:@core/streamutil@^1.0.0",
     "@core/unknownutil": "jsr:@core/unknownutil@^4.3.0",
@@ -57,11 +59,12 @@
     "@std/dotenv": "jsr:@std/dotenv@^0.225.1",
     "@std/encoding": "jsr:@std/encoding@^1.0.3",
     "@std/front-matter": "jsr:@std/front-matter@^1.0.3",
+    "@std/fs": "jsr:@std/fs@^1.0.2",
     "@std/path": "jsr:@std/path@^1.0.3",
     "@std/text": "jsr:@std/text@^1.0.4"
   },
   "tasks": {
-    "docbase": "deno run --allow-net --allow-read --allow-env ./cli/docbase.ts",
+    "docbase": "deno run --allow-net --allow-read --allow-write --allow-env ./cli/docbase.ts",
     "check": "deno check **/*.ts",
     "test": "deno test -A --doc --parallel --shuffle",
     "test:coverage": "deno task test --coverage=.coverage",

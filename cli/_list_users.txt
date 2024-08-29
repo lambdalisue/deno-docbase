@@ -2,9 +2,17 @@ List users.
 
 See https://help.docbase.io/posts/1827704 for query features.
 
-Usage: docbase list-users [OPTIONS]
+Usage: docbase list-users <DOMAIN> [OPTIONS]
+
+Arguments:
+  DOMAIN                Domain name of the team
 
 Options:
-  -q, --query <query>         Query string
-  --json                      Output as JSON
-  -h, --help                  Show help
+  -q, --query <query>   Query string
+  --json                Output as JSON
+  -h, --help            Show help
+
+Examples:
+  docbase list-users my-domain
+
+  docbase list-users my-domain --query "role:admin"

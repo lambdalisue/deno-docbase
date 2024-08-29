@@ -1,14 +1,15 @@
 Archive a memo.
 
-Usage: docbase archive [OPTIONS] <MEMO>
+Usage: docbase archive <DOMAIN> <MEMO> [OPTIONS]
 
 Arguments:
-  MEMO                          Memo ID or URL to archive
+  DOMAIN                Domain name of the team
+  MEMO                  Memo ID or URL to archive
 
 Options:
-  -h, --help                    Show help
+  -h, --help            Show help
 
 Examples:
-  docbase archive 12345
+  docbase archive my-domain 12345
 
-  docbase archive https://{domain}.docbase.io/posts/12345
+  docbase archive my-domain https://{domain}.docbase.io/posts/12345

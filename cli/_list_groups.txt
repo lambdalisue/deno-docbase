@@ -1,8 +1,14 @@
 List groups.
 
-Usage: docbase list-groups [OPTIONS]
+Usage: docbase list-groups <DOMAIN> [OPTIONS]
+
+Arguments:
+  DOMAIN                Domain name of the team
 
 Options
-  --name <NAME>               Filter by name
-  --json                      Output as JSON line
-  -h, --help                  Show help
+  --name <NAME>         Filter by name
+  --json                Output as JSON line
+  -h, --help            Show help
+
+Examples:
+  docbase list-groups my-domain

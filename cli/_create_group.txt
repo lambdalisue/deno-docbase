@@ -1,13 +1,14 @@
 Create a group.
 
-Usage: docbase create-group [OPTIONS] <NAME>
+Usage: docbase create-group <DOMAIN> <NAME> [OPTIONS]
 
 Arguments:
-  NAME                          Group name
+  DOMAIN                Domain name of the team
+  NAME                  Group name
 
 Options:
-  --description <DESC>          Description
-  -h, --help                    Show help
+  --description <DESC>  Description
+  -h, --help            Show help
 
 Examples:
-  docbase create-group --description "This is a group" "Group Name"
+  docbase create-group my-domain "Group Name" --description "This is a group"

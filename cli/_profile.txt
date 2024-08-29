@@ -1,7 +1,13 @@
 Get authenticated user's profile.
 
-Usage: docbase profile [OPTIONS]
+Usage: docbase profile <DOMAIN> [OPTIONS]
+
+Arguments:
+  DOMAIN                Domain name of the team
 
 Options:
-  --json                    Output as JSON
-  -h, --help                Show help
+  --json                Output as JSON
+  -h, --help            Show help
+
+Examples:
+  docbase profile my-domain

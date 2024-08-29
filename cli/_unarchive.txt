@@ -1,9 +1,15 @@
 Unarchive a memo.
 
-Usage: docbase unarchive [OPTIONS] <MEMO>
+Usage: docbase unarchive <DOMAIN> <MEMO> [OPTIONS]
 
 Arguments:
-  MEMO                          Memo ID or URL to unarchive
+  DOMAIN                Domain name of the team
+  MEMO                  Memo ID or URL to unarchive
 
 Options:
-  -h, --help                    Show help
+  -h, --help            Show help
+
+Examples:
+  docbase unarchive my-domain 12345
+
+  docbase unarchive my-domain https://{domain}.docbase.io/posts/12345

@@ -2,8 +2,10 @@
   "version": "3",
   "packages": {
     "specifiers": {
+      "jsr:@core/errorutil@^1.2.0": "jsr:@core/errorutil@1.2.0",
       "jsr:@core/pipe@^0.3.0": "jsr:@core/pipe@0.3.0",
       "jsr:@core/streamutil@^1.0.0": "jsr:@core/streamutil@1.0.0",
+      "jsr:@core/unknownutil@^4.0.0": "jsr:@core/unknownutil@4.3.0",
       "jsr:@core/unknownutil@^4.3.0": "jsr:@core/unknownutil@4.3.0",
       "jsr:@lambdalisue/unnullish@^1.0.2": "jsr:@lambdalisue/unnullish@1.0.2",
       "jsr:@std/assert@^1.0.3": "jsr:@std/assert@1.0.3",
@@ -13,12 +15,20 @@
       "jsr:@std/dotenv@^0.225.1": "jsr:@std/dotenv@0.225.1",
       "jsr:@std/encoding@^1.0.3": "jsr:@std/encoding@1.0.3",
       "jsr:@std/front-matter@^1.0.3": "jsr:@std/front-matter@1.0.3",
+      "jsr:@std/fs@^1.0.2": "jsr:@std/fs@1.0.2",
       "jsr:@std/internal@^1.0.2": "jsr:@std/internal@1.0.2",
       "jsr:@std/path@^1.0.3": "jsr:@std/path@1.0.3",
       "jsr:@std/text@^1.0.4": "jsr:@std/text@1.0.4",
+      "jsr:@std/toml@^1.0.1": "jsr:@std/toml@1.0.1",
       "jsr:@std/yaml@^1.0.4": "jsr:@std/yaml@1.0.4"
     },
     "jsr": {
+      "@core/errorutil@1.2.0": {
+        "integrity": "038293a3e411bf1c8e58631110ea11a546d1f30d286c36c672a85cfd4832fa4a",
+        "dependencies": [
+          "jsr:@core/unknownutil@^4.0.0"
+        ]
+      },
       "@core/pipe@0.3.0": {
         "integrity": "9585d96dc68bc17007957a55c98402f15f0209eaa7a47fca07377cc65bd8c7e7"
       },
@@ -58,7 +68,14 @@
       "@std/front-matter@1.0.3": {
         "integrity": "b28047d778e4d0e74c01325957afcd7276740ee921e7533504bfa85750c293ed",
         "dependencies": [
+          "jsr:@std/toml@^1.0.1",
           "jsr:@std/yaml@^1.0.4"
+        ]
+      },
+      "@std/fs@1.0.2": {
+        "integrity": "af57555c7a224a6f147d5cced5404692974f7a628ced8eda67e0d22d92d474ec",
+        "dependencies": [
+          "jsr:@std/path@^1.0.3"
         ]
       },
       "@std/internal@1.0.2": {
@@ -70,6 +87,12 @@
       "@std/text@1.0.4": {
         "integrity": "8f31643fbd61fcd1f12c58ba5f90a23f6df6fff27894ee907867f7f237f308e7"
       },
+      "@std/toml@1.0.1": {
+        "integrity": "b55b407159930f338d384b1f8fd317c8e8a35e27ebb8946155f49e3a158d16c4",
+        "dependencies": [
+          "jsr:@std/collections@^1.0.5"
+        ]
+      },
       "@std/yaml@1.0.4": {
         "integrity": "f1e38fa5e110ff8550e938715e52c33347676dd00a1db858e092dd21a9df9941"
       }
@@ -78,6 +101,7 @@
   "remote": {},
   "workspace": {
     "dependencies": [
+      "jsr:@core/errorutil@^1.2.0",
       "jsr:@core/pipe@^0.3.0",
       "jsr:@core/streamutil@^1.0.0",
       "jsr:@core/unknownutil@^4.3.0",
@@ -88,6 +112,7 @@
       "jsr:@std/dotenv@^0.225.1",
       "jsr:@std/encoding@^1.0.3",
       "jsr:@std/front-matter@^1.0.3",
+      "jsr:@std/fs@^1.0.2",
       "jsr:@std/path@^1.0.3",
       "jsr:@std/text@^1.0.4"
     ]
